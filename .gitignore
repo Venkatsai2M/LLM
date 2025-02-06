@@ -39,3 +39,6 @@ Thumbs.db
 dist/
 build/
 *.egg-info/
+
+# Ignore .streamlit file
+.streamlit/secrets.toml
