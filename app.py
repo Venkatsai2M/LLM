@@ -15,7 +15,7 @@ def get_response(question):
     return response.text
 
 # Page configuration
-st.set_page_config(page_title="LLM using Gemini-1.5-Flash", page_icon="🤖", layout="centered")
+st.set_page_config(page_title="Q&A BOT", page_icon="🤖", layout="centered")
 
 # Custom Styling
 st.markdown(
