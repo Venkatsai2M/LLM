@@ -54,7 +54,7 @@ venv/(which are very large)
     |-- app.py
     |-- Image info.py
     |-- requirements.txt
-    |-- .env (not pushed to GitHub)
+    |-- .env
     |-- .gitignore
     |-- README.md
 ```
