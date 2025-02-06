@@ -7,18 +7,65 @@ import google.generativeai as genai
 
 genai.configure(api_key=os.getenv("Google_api_key"))
 
-model=genai.GenerativeModel("gemini-1.5-flash")
+# Initialize the model
+model = genai.GenerativeModel("gemini-1.5-flash")
+
 def get_response(question):
-    response=model.generate_content(question)
+    response = model.generate_content(question)
     return response.text
 
-st.set_page_config(page_title="LLM using Gemini-1.5-Flash")
-st.header(" Your personal Q&A, Text geneartor, Code Geneartor Assistant")
-input=st.text_input("input: ",key="input")
-submit=st.button("Submit")
+# Page configuration
+st.set_page_config(page_title="LLM using Gemini-1.5-Flash", page_icon="🤖", layout="centered")
 
+# Custom Styling
+st.markdown(
+    """
+    <style>
+        .main-title {
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            color: #4A90E2;
+        }
+        .input-box {
+            border-radius: 10px;
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+        }
+        .submit-button {
+            background-color: #4A90E2;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        .response-box {
+            background-color: #f0f2f6;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 
-if submit:
-    response=get_response(input)
-    st.subheader("Response")
-    st.write(response)
+# Main UI
+st.markdown("<h1 class='main-title'>Your AI Assistant 🤖</h1>", unsafe_allow_html=True)
+
+st.write("Ask me anything! I can help with Q&A, text generation, and code generation.")
+
+# Input section
+input_text = st.text_input("Enter your query:", key="input")
+
+# Button with better styling
+if st.button("Submit", key="submit", help="Click to generate a response"):
+    if input_text.strip():
+        response = get_response(input_text)
+        st.subheader("Response")
+        st.markdown(f"<div class='response-box'>{response}</div>", unsafe_allow_html=True)
+    else:
+        st.warning("Please enter a valid query.")

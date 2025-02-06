@@ -1,6 +1,6 @@
-## LLM AND LIM
+## LLM
 
-The app.py and Image info.py.These two are simple Streamlit web applications that integrates with Google's Gemini API.The app.py generate responses based on user input.The Image info.py tells about the image uploaded
+It is a simple Streamlit web applications that integrates with Google's Gemini API.The app.py generate responses based on user input.
 
 ## Features
 - Uses Google's Gemini-1.5 Flash model for text generation
@@ -40,12 +40,6 @@ streamlit run app.py
 
 Enter a query in the input field and click "Submit" to get a response.This is for the app.py
 
-Run the Streamlit application:
-```bash
-streamlit run Image info.py
-```
-
-Upload the image and Enter a query in the input field and click "Submit" to get info of the image.This is for the Image info.py
 
 
 ## .gitignore
@@ -64,7 +58,7 @@ venv/(which are very large)
     |-- .gitignore
     |-- README.md
 ```
-guvuv
+
 
 
 ## License
